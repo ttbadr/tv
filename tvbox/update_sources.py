@@ -8,11 +8,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from update_readme import update_readme
 
 def is_valid_json(content):
-    try:
-        json.loads(content)
-        return True
-    except json.JSONDecodeError:
-        return False
+    # 检查内容是否包含字符串 "wallpaper"
+    return "wallpaper" in content
 
 def has_content_changed(file_path, new_content):
     if not os.path.exists(file_path):
@@ -30,11 +27,11 @@ def has_content_changed(file_path, new_content):
 def fetch_url(url):
     """获取URL内容，支持重定向和自定义请求头"""
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'Accept': 'application/json,text/plain,*/*',
-        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache',
+        'Accept': 'application/json',
+        'User-Agent': 'Apifox/1.0.0 (https://apifox.com)',
+        'Host': 'toby.v.nxog.top',
+        'Connection': 'keep-alive',
+        'Referer': 'https://toby.v.nxog.top/m/?b=æ¬§æ­'
     }
     
     session = requests.Session()
