@@ -63,6 +63,7 @@ def process_sources():
             name, url = [x.strip() for x in line.split(',')]
             print(f"Fetching {name} from {url}")
             content = fetch_url(url)
+            print(content)
             
             if is_valid_json(content):
                 output_file = f'tvbox/{name}.json'
