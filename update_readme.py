@@ -52,5 +52,5 @@ if __name__ == '__main__':
     # 这里需要替换为实际的仓库所有者和仓库名
     repo_owner = os.getenv('GITHUB_REPOSITORY_OWNER', 'ttbadr')
     repo_name = os.getenv('GITHUB_REPOSITORY', 'tv').split('/')[-1]
-    proxy_prefix = os.getenv('PROXY_PREFIX', 'https://www.ghproxy.cn/')
+    proxy_prefix = os.getenv('PROXY_PREFIX', 'https://cf.ghproxy.cc/')
     update_readme(repo_owner, repo_name, proxy_prefix) 
