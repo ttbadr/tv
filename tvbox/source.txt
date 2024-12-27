@@ -1,0 +1,3 @@
+ouge1, https://toby.v.nxog.top
+ouge2, https://toby.v.nxog.top/api.php?id=2
+ouge3, https://toby.v.nxog.top/api.php?id=3

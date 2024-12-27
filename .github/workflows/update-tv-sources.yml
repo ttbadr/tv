@@ -1,0 +1,43 @@
+name: Update TV Sources
+
+on:
+  push:
+    paths:
+      - 'tv/source.txt'
+  schedule:
+    - cron: '0 20 * * *'  # UTC 20:00 (北京时间次日 4:00)
+  workflow_dispatch:
+
+env:
+  PROXY_PREFIX: 'https://www.ghproxy.cn/'  # 可以在仓库设置中覆盖此环境变量
+
+jobs:
+  update-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+          
+      - name: Update sources
+        run: python tv/update_sources.py
+        
+      - name: Commit and push changes
+        run: |
+          if [ "$(cat .has_updates)" == "yes" ]; then
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add tv/*.m3u tv/*.m3u8 README.md
+            git commit -m "Update TV sources" || echo "No changes to commit"
+            git push
+          else
+            echo "No content changes detected, skipping commit"
+          fi 

@@ -1,0 +1,6 @@
+jazz-cn, https://jazzforlove.github.io/IPTV/CN-IPTV.m3u
+jazz-cn2, https://jazzforlove.github.io/IPTV/IPTV_CN.m3u
+turbo-mytv, https://github.com/turbo-car/mytv/blob/main/mytv.m3u8
+kimwang-live_lite, https://github.com/kimwang1978/collect-tv-txt/blob/main/live_lite.m3u
+kimwang-live, https://github.com/kimwang1978/collect-tv-txt/blob/main/live.m3u
+hud-playlist, https://github.com/hud4156/mytv/blob/main/playlist.m3u
